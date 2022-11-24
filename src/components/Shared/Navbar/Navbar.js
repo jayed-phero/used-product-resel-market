@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -41,9 +42,9 @@ const Navbar = () => {
                             className='rounded-lg'
                         >Advertisement</a></li>
                     </ul>
-                    <h3
+                   <Link to="/signin"> <h3
                         className='px-9 py-3 rounded-3xl border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'
-                    >SignIn</h3>
+                    >SignIn</h3></Link>
                 </div>
             </div>
             {/* <header>

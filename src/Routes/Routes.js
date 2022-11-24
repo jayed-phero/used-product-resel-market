@@ -1,4 +1,5 @@
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
+import Signup from "../components/Pages/Register/Signup";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../components/Pages/Home/Home/Home");
@@ -15,8 +16,12 @@ export const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: 'signin',
+                path: '/signin',
                 element: <Signin/>
+            },
+            {
+                path: '/signup',
+                element: <Signup/>
             },
             {
                 path: '/categori/:id',
