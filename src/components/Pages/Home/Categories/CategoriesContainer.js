@@ -14,7 +14,7 @@ const CategoriesContainer = () => {
     } , [])
 
     return (
-        <div className='md:px-52 px-5 py-16'>
+        <div className='md:px-52 px-5 py-16 mt-20'>
             <div className='flex items-center justify-between flex-col gap-5'>
                 <div className='text-center'>
                     <h3 className='text-3xl font-semibold '><span className='text-regal-yellow'>Fresh Mobile <br /></span> for Maximum Satisfaction</h3>
