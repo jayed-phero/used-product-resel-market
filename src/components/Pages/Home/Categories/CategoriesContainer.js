@@ -5,7 +5,7 @@ const CategoriesContainer = () => {
     const [categories, setCategories] = useState([])
 
     useEffect( () => {
-        fetch(`${process.env.REACT_APP_API_LIN}/products`)
+        fetch(`${process.env.REACT_APP_API_LIN}/categories`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -30,7 +30,7 @@ const CategoriesContainer = () => {
                             className='w-full' />
                             <div className='flex items-center justify-between p-3 my-5'>
                                 <h3 className='text-2xl font-semibold'>{categori.title}</h3>
-                               <Link to={`categori/${categori._id}`}> <h3 className='px-7 rounded-xl py-2 border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'>See all</h3></Link>
+                               <Link to={`categori/${categori.categori_id}`}> <h3 className='px-7 rounded-xl py-2 border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'>See all</h3></Link>
                             </div>
                         </div>
                     )

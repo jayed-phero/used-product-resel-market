@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             {
                 path: '/categori/:id',
                 element: <SingleCategori/>,
-                loader: ({ params }) => fetch(`${process.env.REACT_APP_API_LIN}/categori/${params.id}`),
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_API_LIN}/products/${params.id}`),
             }
         ]
     }
