@@ -1,5 +1,7 @@
+import Dashboard from "../components/Pages/Dashboard/Dashboard";
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
 import Signup from "../components/Pages/Register/Signup";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../components/Pages/Home/Home/Home");
@@ -28,6 +30,17 @@ export const router = createBrowserRouter([
                 element: <SingleCategori/>,
                 loader: ({ params }) => fetch(`${process.env.REACT_APP_API_LIN}/products/${params.id}`),
             }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard/>
+            },
+            
         ]
     }
 ])

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
+    const { user , logout} = useContext(AuthContext)
     return (
         <div>
             <div className="navbar bg-base-100 py-5 shadow-lg lg:px-52 px-5 fixed top-0">
@@ -27,22 +29,34 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost normal-case text-2xl">daisyUI</a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-
-                </div>
-                <div className="navbar-end text-lg">
+                <div className="text-lg">
                     <ul className="menu menu-horizontal p-0 mr-3 hidden lg:flex">
-                       <Link to='/'><li><a
+                        <Link to='/'><li><a
                             className='rounded-lg'
-                        >Home</a></li></Link> 
+                        >Home</a></li></Link>
                         <li><a
                             className='rounded-lg'
                         > Blogs</a></li>
                         <Link to='/advertise'><li><a
                             className='rounded-lg'
                         >Advertisement</a></li></Link>
+                        {
+                            user?.uid ?
+                                <>
+                                    <Link to='/dashboard'><li><a
+                                        className='rounded-lg'
+                                    >Dashboard</a></li></Link>
+                                    <li onClick={() => logout()}><a
+                                        className='rounded-lg'
+                                    >Log Out</a></li>
+                                </>
+
+                                :
+                                undefined
+                        }
+
                     </ul>
-                   <Link to="/signin"> <h3
+                    <Link to="/signin"> <h3
                         className='px-9 py-3 rounded-3xl border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'
                     >SignIn</h3></Link>
                 </div>

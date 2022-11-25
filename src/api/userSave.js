@@ -18,3 +18,12 @@ export const authTokenAndSaveUser = userData => {
         localStorage.setItem('rsProduct-token', data.token)
     })
 }
+
+
+export const getUserRole = async email => {
+    const url = `${process.env.REACT_APP_API_LIN}/user/${email}`
+    
+    const res = await fetch(url)
+    const user = await res.json()
+    return user?.role
+}
