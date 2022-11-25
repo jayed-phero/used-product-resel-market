@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authTokenAndSaveUser } from '../../../api/userSave';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Signup = () => {
     const { user, createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    const navigate = useNavigate()
 
     const handleSignup = (data) => {
         console.log(data)
@@ -21,6 +23,7 @@ const Signup = () => {
                     role: data.select
                 }
                 authTokenAndSaveUser(userData)
+                navigate('/signin')
 
             })
             .catch(err => console.log(err))
@@ -78,15 +81,6 @@ const Signup = () => {
                             <option value="seller">Seller</option>
                         </select>
                     </div>
-{/* 
-                    <div>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>Who shot first?</option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                    </div> */}
-
 
                     <div class="mt-6">
                         <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" type='submit'>

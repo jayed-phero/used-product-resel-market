@@ -45,7 +45,7 @@ const Signin = () => {
 
                     <div class="mt-4">
                         <div class="flex items-center justify-between">
-                            <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
+                            <label htmlFor="password" class="block text-sm text-gray-800 dark:text-gray-200">Password</label>
                             <Link href="#" class="text-xs text-blue-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
                         </div>
 
@@ -54,7 +54,7 @@ const Signin = () => {
                     </div>
 
                     <div class="mt-6">
-                        <button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" type='submit'>
+                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" type='submit'>
                             Login
                         </button>
                     </div>
