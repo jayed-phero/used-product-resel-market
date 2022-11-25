@@ -1,9 +1,10 @@
 import React from 'react';
+import DrawerContent from './DrawerContent';
 
 const Sidebar = ({ role }) => {
     return (
         <div>
-            <div class="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-900 dark:border-gray-700">
+            {/* <div class="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-900 dark:border-gray-700">
                 <h2 class="text-3xl font-semibold text-gray-800 dark:text-white">Brand</h2>
 
                 <div class="relative mt-6">
@@ -69,6 +70,22 @@ const Sidebar = ({ role }) => {
                         <img class="object-cover mx-2 rounded-full h-9 w-9" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="avatar" />
                         <h4 class="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">John Doe</h4>
                     </div>
+                </div>
+            </div> */}
+            <div className="drawer drawer-mobile shadow-xl">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col items-center justify-center">
+
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+                </div>
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        {/* <!-- Sidebar content here --> */}
+                        <DrawerContent role={role} />
+                    </ul>
+
                 </div>
             </div>
         </div>

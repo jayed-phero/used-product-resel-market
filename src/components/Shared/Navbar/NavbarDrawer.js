@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
-const Navbar = () => {
-    const { user, logout } = useContext(AuthContext)
+const NavbarDrawer = () => {
+    const {user, logout} = useContext(AuthContext)
     return (
         <div>
-            <div className="navbar bg-base-100 py-5 shadow-lg lg:px-52 px-5 flex justify-between items-center">
+            <div className="navbar bg-base-100 py-5 shadow-lg px-11 flex justify-between items-center">
                 <div className="">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -67,13 +67,8 @@ const Navbar = () => {
                     </label>
                 </div>
             </div>
-            {/* <header>
-                <img
-                    src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt=""
-                    className='w-full' />
-            </header> */}
         </div>
     );
 };
 
-export default Navbar;
+export default NavbarDrawer;

@@ -5,41 +5,41 @@ import { authTokenAndSaveUser } from '../../../api/userSave';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Signup = () => {
-    const {user, createUser, updateUserProfile, signInWithGoogle} = useContext(AuthContext)
-     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { user, createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-     const handleSignup = (data) => {
+    const handleSignup = (data) => {
         console.log(data)
-          createUser(data.email, data.password)
-          .then( result => {
-            const user = result.user
-            console.log(user)
-            updateUserProfile(data.name)
-            const userData = {
-                email: user.email,
-                userName: data.name,
-                role: data.select
-            }
-            authTokenAndSaveUser(userData)
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                updateUserProfile(data.name)
+                const userData = {
+                    email: user.email,
+                    userName: data.name,
+                    role: data.select
+                }
+                authTokenAndSaveUser(userData)
 
-          })
-          .catch(err => console.log(err))
-     }
+            })
+            .catch(err => console.log(err))
+    }
 
-     const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = () => {
         signInWithGoogle()
-        .then(result => {
-            const user = result.user
-            console.log(user)
-            const userData = {
-                email: user.email,
-                userName: user.displayName,
-                role: "buyer"
-            }
-            authTokenAndSaveUser(userData)
-            
-        })
-     }
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                const userData = {
+                    email: user.email,
+                    userName: user.displayName,
+                    role: "buyer"
+                }
+                authTokenAndSaveUser(userData)
+
+            })
+    }
     return (
         <div className='mt-32'>
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
@@ -48,15 +48,15 @@ const Signup = () => {
                 <form onSubmit={handleSubmit(handleSignup)} class="mt-6">
                     <div>
                         <label htmlFor="username" class="block text-sm text-gray-800 dark:text-gray-200">Username</label>
-                        <input type="text" 
-                        {...register("name")}
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        <input type="text"
+                            {...register("name")}
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div>
                         <label htmlFor="email" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
-                        <input type="email" 
-                         {...register("email")}className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        <input type="email"
+                            {...register("email")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
 
@@ -66,18 +66,26 @@ const Signup = () => {
                             <Link href="#" class="text-xs text-blue-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
                         </div>
 
-                        <input type="password" 
-                         {...register("password")}class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        <input type="password"
+                            {...register("password")} class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div class="mt-4">
-                        <select type="text" 
-                         {...register("select")}
-                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40">
-                            <option value="buyer">Buyer</option>
+                        <select type="text"
+                            {...register("select")}
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 select select-bordered">
+                            <option value="buyer" selected>Buyer</option>
                             <option value="seller">Seller</option>
                         </select>
                     </div>
+{/* 
+                    <div>
+                        <select className="select select-bordered w-full max-w-xs">
+                            <option disabled selected>Who shot first?</option>
+                            <option>Han Solo</option>
+                            <option>Greedo</option>
+                        </select>
+                    </div> */}
 
 
                     <div class="mt-6">

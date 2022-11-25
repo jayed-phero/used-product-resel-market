@@ -5,7 +5,6 @@ import ProductModal from './ProductModal';
 
 const SingleCategori = () => {
     const data = useLoaderData()
-    console.log(data)
     const [product, setProduct] = useState(null)
 
     return (
@@ -22,7 +21,10 @@ const SingleCategori = () => {
             </div>
             {
                 product &&
-                <ProductModal product={product} />
+                <ProductModal
+                    product={product}
+                    setProduct={setProduct}
+                />
             }
         </div>
     );

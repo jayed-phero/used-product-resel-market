@@ -1,40 +1,48 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getUserRole } from '../api/userSave';
-import Sidebar from '../components/Pages/Dashboard/Sidebar';
+import DrawerContent from '../components/Pages/Dashboard/DrawerContent';
 import Spinner from '../components/Pages/Spinner/Spinner';
+import NavbarDrawer from '../components/Shared/Navbar/NavbarDrawer';
 import { AuthContext } from '../Context/AuthProvider';
 
 const DashboardLayout = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
     const [role, setRole] = useState(null)
 
     useEffect(() => {
         setLoading(true)
         getUserRole(user?.email)
-        .then(data => {
-            console.log(data)
-            setRole(data)
-            setLoading(false)
-        })
+            .then(data => {
+                console.log(data)
+                setRole(data)
+                setLoading(false)
+            })
 
     }, [user])
 
     return (
-        <div className='md:flex min-h-screen'>
+        <div className='min-h-screen '>
+            <NavbarDrawer/>
             {
-                loading ? 
-                <Spinner/>
-                :
-                <div >
-                    <Sidebar role={role}/>
-                    <div className='flex-1 md:ml-64'>
-                        <div className='p-7'>
-                            <Outlet/>
+                loading ?
+                    <Spinner />
+                    :
+                    <div className="drawer drawer-mobile ">
+                        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content p-5">
+                            <Outlet />
+                        </div>
+                        <div className="drawer-side shadow-xl">
+                            <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                            <ul className="menu p-4 w-80 bg-base-100 text-base-content ">
+                                {/* <!-- Sidebar content here --> */}
+                                <DrawerContent role={role} />
+                            </ul>
+
                         </div>
                     </div>
-                </div>
             }
         </div>
     );
