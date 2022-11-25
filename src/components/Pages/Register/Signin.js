@@ -1,7 +1,13 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 const Signin = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+     const handleSignup = (data) => {
+
+     }
     return (
         <div className='my-32'>
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
@@ -10,7 +16,8 @@ const Signin = () => {
                 <form class="mt-6">
                     <div>
                         <label htmlFor="username" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
-                        <input type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        <input type="text" 
+                         {...register("email")}className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div class="mt-4">
@@ -19,7 +26,8 @@ const Signin = () => {
                             <Link href="#" class="text-xs text-blue-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
                         </div>
 
-                        <input type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        <input type="password" 
+                         {...register("password")}className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div class="mt-6">

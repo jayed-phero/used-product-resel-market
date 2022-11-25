@@ -39,7 +39,7 @@ const CategoriRow = ({ setProduct, cateData }) => {
                         </div>
                     </div>
                 </div>
-                <div className='flex items-center text-xl  py-5 '>
+                <div className='flex items-center text-xl  py-3 '>
                     <h3>Seller : <span className='font-semibold'>{selerName}</span></h3>
                     <p></p>
                 </div>
