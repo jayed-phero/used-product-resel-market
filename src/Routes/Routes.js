@@ -1,5 +1,6 @@
 import Dashboard from "../components/Pages/Dashboard/Dashboard";
 import AddAProduct from "../components/Pages/Dashboard/SellerRoute/AddAProduct";
+import MyProducts from "../components/Pages/Dashboard/SellerRoute/MyProducts";
 import UserRoutes from "../components/Pages/Dashboard/UserRoutes/UserRoutes";
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
 import Signup from "../components/Pages/Register/Signup";
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addaproduct',
                 element: <AddAProduct/>
+            },
+            {
+                path: '/dashboard/my-products',
+                element: <MyProducts/>
             }
 
         ]

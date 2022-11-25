@@ -22,17 +22,15 @@ const CategoriRow = ({ setProduct, cateData }) => {
                     </div>
                 </div>
                 <div className='flex items-center gap-5 mt-5'>
-                    <div className='border-2 border-gray-400 w-full p-2 flex  items-center justify-center flex-col md:flex-row gap-3 font-semi-bold text-center'>
-                        <i className="fa-regular fa-clock text-xl text-regal-yellow"></i>
+                    <div className='border-2 border-gray-400 w-full p-2 flex  items-center justify-center flex-col md:flex-row gap-3 font-semi-bold text-center text-sm'>
+                        <i className="fa-regular fa-clock text-lg text-regal-yellow"></i>
                         <div>
                             <p className='font-bold'>{postsTime}</p>
-                            <h3>Product Post Time</h3>
+                            <h3>Post Time</h3>
                         </div>
                     </div>
-                    <div className='border-2 border-gray-400 w-full p-2 flex  items-center 
-                                text-center justify-center gap-3 font-semi-bold flex-col md:flex-row'>
-                        <i className="fa-solid fa-location-dot text-xl text-regal-yellow
-                                     font-semibold"></i>
+                    <div className='border-2 border-gray-400 w-full p-2 flex  items-center text-center justify-center gap-3 font-semi-bold flex-col md:flex-row text-sm'>
+                        <i className="fa-solid fa-location-dot text-lg text-regal-yellow font-semibold"></i>
                         <div>
                             <p className='font-bold'>{location}</p>
                             <h3>Location</h3>

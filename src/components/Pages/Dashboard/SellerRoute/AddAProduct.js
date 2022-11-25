@@ -2,6 +2,7 @@ import { data } from 'autoprefixer';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { postAndGetImageUrl } from '../../../../api/ImagePost';
 import { AuthContext } from '../../../../Context/AuthProvider';
 
@@ -9,6 +10,7 @@ const AddAProduct = () => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const currTime = new Date().toLocaleTimeString();
+    const navigate = useNavigate()
 
     const handleAdding = (data) => {
         console.log(data)
@@ -27,8 +29,10 @@ const AddAProduct = () => {
                     categori_id: data.categori,
                     description: data.description,
                     selerName: user?.displayName,
+                    email: user?.email,
                     postsTime: currTime,
-                    location: data.location
+                    location: data.location,
+                    role: 'available'
                 }
 
                 fetch(`${process.env.REACT_APP_API_LIN}/addproduct`, {
@@ -43,6 +47,7 @@ const AddAProduct = () => {
                         console.log(data)
                         if (data.acknowledged) {
                             toast.success("Product Added successfullly")
+                            navigate('/dashboard/my-products')
                         }
                     })
             })
@@ -131,7 +136,7 @@ const AddAProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Location</span>
                                 </label>
-                                <input type="text" placeholder="Purchase Year" className="input input-bordered w-full"
+                                <input type="text" placeholder="Location" className="input input-bordered w-full"
                                     {...register("location")}
                                 />
                             </div>
