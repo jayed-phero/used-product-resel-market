@@ -32,15 +32,15 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end text-lg">
                     <ul className="menu menu-horizontal p-0 mr-3 hidden lg:flex">
-                        <li><a
+                       <Link to='/'><li><a
                             className='rounded-lg'
-                        >Home</a></li>
+                        >Home</a></li></Link> 
                         <li><a
                             className='rounded-lg'
                         > Blogs</a></li>
-                        <li><a
+                        <Link to='/advertise'><li><a
                             className='rounded-lg'
-                        >Advertisement</a></li>
+                        >Advertisement</a></li></Link>
                     </ul>
                    <Link to="/signin"> <h3
                         className='px-9 py-3 rounded-3xl border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'
