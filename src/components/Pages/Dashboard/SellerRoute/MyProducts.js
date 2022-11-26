@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { advertiseClose, advertiseProduct, allProductForSeller } from '../../../../api/products';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ConformationModal from '../../../Shared/ConformationModal/ConformationModal';
 import Spinner from '../../Spinner/Spinner';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext)
     const [productsData, setProductsData] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [deleteProduct, setDeleteProduct] = useState(null)
 
     useEffect(() => {
         allProductsGet()
@@ -36,7 +39,28 @@ const MyProducts = () => {
                 setLoading(false)
             })
     }
-    return (
+
+    const modalClose = () => {
+        setDeleteProduct(null)
+    }
+
+    const handleDeleteProduct = product => {
+        fetch(`${process.env.REACT_APP_API_LIN}/allproducts/${product._id}`, {
+            method: 'DELETE',
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('reselProduct')}`
+            // }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                allProductsGet();
+                toast.success(`Product ${product.name} deleted successfully`)
+            }
+        })
+
+    }
+     return (
         <div>
             {
                 loading ?
@@ -108,7 +132,7 @@ const MyProducts = () => {
                                                 }
                                             </td>
                                             <td>
-                                                <button className="btn btn-ghost btn-xs">Delete</button>
+                                                <label onClick={() => setDeleteProduct(product)} htmlFor="modalConformation" className="btn btn-ghost text-error btn-xs">Delete</label>
                                             </td>
                                         </tr>
                                     )
@@ -116,6 +140,16 @@ const MyProducts = () => {
                             </tbody>
                         </table>
                     </div>
+            }
+            {
+                deleteProduct && <ConformationModal
+                title={` Are you sure want to delete !!!`}
+                message={`if you delete ${deleteProduct.name}. we will never be able to recover it!!`}
+                successAction={handleDeleteProduct}
+                modalData={deleteProduct}
+                successButtonName="Delete"
+                modalClose={modalClose}
+                />
             }
         </div>
     );
