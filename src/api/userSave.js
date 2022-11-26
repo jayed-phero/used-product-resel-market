@@ -27,3 +27,5 @@ export const getUserRole = async email => {
     const user = await res.json()
     return user?.role
 }
+
+
