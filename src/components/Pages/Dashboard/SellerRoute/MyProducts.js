@@ -47,9 +47,6 @@ const MyProducts = () => {
     const handleDeleteProduct = product => {
         fetch(`${process.env.REACT_APP_API_LIN}/allproducts/${product._id}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('reselProduct')}`
-            // }
         })
         .then(res => res.json())
         .then(data => {

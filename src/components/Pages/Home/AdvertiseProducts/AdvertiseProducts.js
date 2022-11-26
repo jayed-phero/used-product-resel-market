@@ -36,7 +36,7 @@ const AdvertiseProducts = () => {
                     product?.role === 'advertised' &&
                     <>
                         <div className=''>
-                            <div className='flex flex-col md:flex-row items-start gap-7 mb-11'>
+                            <div className='flex flex-col md:flex-row items-start gap-7 mb-11 relative'>
                                 <img
                                     src={product.image}
                                     alt=""
@@ -58,6 +58,10 @@ const AdvertiseProducts = () => {
                                         <h3 className='text-xl font-semibold'>{product.location}</h3>
                                     </div>
                                 </div>
+                                <span class="flex items-center justify-center h-5 w-5 absolute -left-1 -top-1">
+                                    <span class="animate-ping absolute inline-flex h-9 w-9 rounded-full bg-green-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+                                </span>
                             </div>
                         </div>
                     </>

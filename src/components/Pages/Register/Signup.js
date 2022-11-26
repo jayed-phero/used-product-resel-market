@@ -20,7 +20,8 @@ const Signup = () => {
                 const userData = {
                     email: user.email,
                     userName: data.name,
-                    role: data.select
+                    role: data.select,
+                    verify: 'unverified'
                 }
                 authTokenAndSaveUser(userData)
                 navigate('/signin')

@@ -37,9 +37,9 @@ const CategoriRow = ({ setProduct, cateData }) => {
                         </div>
                     </div>
                 </div>
-                <div className='flex items-center text-xl  py-3 '>
+                <div className='flex items-center text-xl  py-3 gap-3'>
                     <h3>Seller : <span className='font-semibold'>{selerName}</span></h3>
-                    <p></p>
+                    <p className='h-3 w-3 rounded-full bg-blue-500'></p>
                 </div>
                 {/* <Link>
                     <label className='w-full py-3 flex items-center justify-center border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent text-lg font-semibold btn' htmlFor="product-modal">Book Now</label>

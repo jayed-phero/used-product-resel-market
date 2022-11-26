@@ -2,7 +2,8 @@ export const authTokenAndSaveUser = userData => {
     const currentUser = {
         email: userData.email,
         name: userData.userName,
-        role: userData.role
+        role: userData.role,
+        verify: userData.verify,
     }
 
     fetch(`${process.env.REACT_APP_API_LIN}/user/${userData?.email}` , {

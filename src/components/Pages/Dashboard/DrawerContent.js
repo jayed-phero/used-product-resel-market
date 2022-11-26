@@ -15,7 +15,7 @@ const DrawerContent = ({role}) => {
                     </svg>
                 </span>
 
-                <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Search" />
+                <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Search" />
             </div>
 
             <div class="flex flex-col justify-between flex-1 mt-6">
@@ -50,17 +50,17 @@ const DrawerContent = ({role}) => {
                             :
                             <>
 
-                                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <Link class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/all-sellers'>
                                     <i className="fa-regular fa-user h-5 w-5"></i>
 
                                     <span class="mx-4 font-medium">All Sellers</span>
-                                </a>
+                                </Link>
 
-                                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <Link class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/all-buyers'>
                                     <i className="fa-regular fa-user h-5 w-5"></i>
 
                                     <span class="mx-4 font-medium">All Buyers</span>
-                                </a>
+                                </Link>
                             </>
                     }
 
