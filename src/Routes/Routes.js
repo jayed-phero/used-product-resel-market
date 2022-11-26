@@ -1,3 +1,4 @@
+import Blogs from "../components/Pages/Blogs/Blogs";
 import AllBuyers from "../components/Pages/Dashboard/AdminRoute/AllBuyers";
 import AllSellers from "../components/Pages/Dashboard/AdminRoute/AllSellers";
 import Dashboard from "../components/Pages/Dashboard/Dashboard";
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup/>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs/>
             },
             {
                 path: '/categori/:id',

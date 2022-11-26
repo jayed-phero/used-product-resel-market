@@ -42,9 +42,9 @@ const Navbar = () => {
                         <Link to='/'><li><a
                             className='rounded-lg'
                         >Home</a></li></Link>
-                        <li><a
+                       <Link to='/blogs'><li><a
                             className='rounded-lg'
-                        > Blogs</a></li>
+                        > Blogs</a></li></Link> 
                         <Link to='/advertise'><li><a
                             className='rounded-lg'
                         >Advertisement</a></li></Link>
