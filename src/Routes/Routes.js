@@ -7,6 +7,7 @@ import MyProducts from "../components/Pages/Dashboard/SellerRoute/MyProducts";
 import UserRoutes from "../components/Pages/Dashboard/UserRoutes/UserRoutes";
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
 import Signup from "../components/Pages/Register/Signup";
+import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import DashboardLayout from "../Layout/DashboardLayout";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: '/',
@@ -45,6 +47,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashboardLayout></DashboardLayout>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: '/dashboard',
