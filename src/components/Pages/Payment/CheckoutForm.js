@@ -1,22 +1,26 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = ({data}) => {
+const CheckoutForm = ({ data }) => {
     const stripe = useStripe()
     const elements = useElements()
     const [clientSecret, setClientSecret] = useState("")
     const [cardError, setCartError] = useState('')
-    const {reselPrice: price} = data;
+    const [success, setSuccess] = useState('')
+    const [processing, setProcessing] = useState(false)
+    const [transactionId, setTransactionId] = useState('')
+    const { pricee, username, email } = data;
+    const price = 501;
 
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
         fetch(`${process.env.REACT_APP_API_LIN}/create-payment-intent`, {
             method: "POST",
-            headers: { 
-                "Content-Type": "application/json" 
+            headers: {
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({reselPrice: price}),
+            body: JSON.stringify({ price }),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));
@@ -47,6 +51,31 @@ const CheckoutForm = ({data}) => {
         else {
             setCartError('')
         }
+ 
+        setSuccess('')
+        setProcessing(true)
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: username,
+                    email: email
+                }
+            }
+        })
+
+        if(confirmError){
+            setCartError(confirmError.message);
+            return;
+        }
+
+        if(paymentIntent.status === "succeeded"){
+           setSuccess('Congrates! your payment completed')
+           setTransactionId(paymentIntent.id)
+
+        }
+        console.log(paymentIntent)
+        setProcessing(false)
 
     }
     return (
@@ -78,6 +107,13 @@ const CheckoutForm = ({data}) => {
                 </div>
             </form>
             <h3 className='py-5 text-red-500'>{cardError}</h3>
+            {
+                success && 
+                <div className='py-5'>
+                    <p className='text-green-500'></p>
+                    <p className=''>Your transactionId: <span className='font-semibold'>{transactionId}</span></p>
+                </div>
+            }
         </>
     );
 };

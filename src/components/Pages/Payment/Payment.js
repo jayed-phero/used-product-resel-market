@@ -1,21 +1,16 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PK}`);
 
-// const App = () => {
-//   return (
-// <Elements stripe={stripePromise}>
-//   <CheckoutForm />
-// </Elements>
-//   );
-// };
 
 const Payment = () => {
     const data = useLoaderData()
+    const {user} = useContext(AuthContext)
     console.log(data)
     const { productName } = data;
     // console.log(name)
@@ -41,7 +36,7 @@ const Payment = () => {
                                         </svg>
                                     </span>
 
-                                    <input type="email" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                                    <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" defaultValue={user?.displayName} disabled/>
                                 </div>
 
                                 <div class="relative flex items-center mt-4">
@@ -51,7 +46,7 @@ const Payment = () => {
                                         </svg>
                                     </span>
 
-                                    <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
+                                    <input type="email" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" defaultValue={user?.email} disabled />
                                 </div>
                             </form>
                             <div className='mt-7'>
