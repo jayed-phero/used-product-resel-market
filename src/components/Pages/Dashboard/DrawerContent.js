@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
-const DrawerContent = ({role}) => {
-    const {user} = useContext(AuthContext)
+const DrawerContent = ({ role }) => {
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <h2 class="text-3xl font-semibold text-gray-800 dark:text-white">Brand</h2>
@@ -25,11 +25,18 @@ const DrawerContent = ({role}) => {
                             <h2>
                                 {
                                     role === 'buyer' ?
-                                        <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/userroutes'>
-                                            <i className="fa-solid fa-cart-arrow-down h-5 w-5"></i>
+                                        <>
+                                            <Link htmlFor="my-drawer-2" className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/userroutes'>
+                                                <i className="fa-solid fa-cart-arrow-down h-5 w-5"></i>
 
-                                            <span class="mx-4 font-medium">My orders</span>
-                                        </Link>
+                                                <span class="mx-4 font-medium">My orders</span>
+                                            </Link>
+                                            <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/my-wishlist'>
+                                                <i className="fa-solid fa-cart-flatbed-suitcase h-5 w-5"></i>
+
+                                                <span class="mx-4 font-medium">My Wishlist</span>
+                                            </Link>
+                                        </>
                                         :
                                         <>
                                             <Link class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" to='/dashboard/addaproduct'>

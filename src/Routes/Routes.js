@@ -4,6 +4,7 @@ import AllSellers from "../components/Pages/Dashboard/AdminRoute/AllSellers";
 import Dashboard from "../components/Pages/Dashboard/Dashboard";
 import AddAProduct from "../components/Pages/Dashboard/SellerRoute/AddAProduct";
 import MyProducts from "../components/Pages/Dashboard/SellerRoute/MyProducts";
+import MyWishlist from "../components/Pages/Dashboard/UserRoutes/MyWishlist";
 import UserRoutes from "../components/Pages/Dashboard/UserRoutes/UserRoutes";
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
 import Payment from "../components/Pages/Payment/Payment";
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
                 element: <UserRoutes/>
             },
             {
+                path: '/dashboard/my-wishlist',
+                element: <MyWishlist/>
+            },
+            {
                 path: '/dashboard/addaproduct',
                 element: <AddAProduct/>
             },
@@ -78,6 +83,11 @@ export const router = createBrowserRouter([
                 path: '/dashboard/payment/:id',
                 element: <Payment/>,
                 loader: ({params}) => fetch(`${process.env.REACT_APP_API_LIN}/bookings/${params.id}`)
+            },
+            {
+                path: '/dashboard/wishlistpayment/:id',
+                element: <Payment/>,
+                loader: ({params}) => fetch(`${process.env.REACT_APP_API_LIN}/wishlists/${params.id}`)
             }
 
         ]

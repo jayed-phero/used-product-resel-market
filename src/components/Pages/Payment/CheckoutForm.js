@@ -9,7 +9,7 @@ const CheckoutForm = ({ data }) => {
     const [success, setSuccess] = useState('')
     const [processing, setProcessing] = useState(false)
     const [transactionId, setTransactionId] = useState('')
-    const { pricee, username, email } = data;
+    const { pricee, username, email, _id } = data;
     const price = 501;
 
 
@@ -51,7 +51,7 @@ const CheckoutForm = ({ data }) => {
         else {
             setCartError('')
         }
- 
+
         setSuccess('')
         setProcessing(true)
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
@@ -64,15 +64,32 @@ const CheckoutForm = ({ data }) => {
             }
         })
 
-        if(confirmError){
+        if (confirmError) {
             setCartError(confirmError.message);
             return;
         }
 
-        if(paymentIntent.status === "succeeded"){
-           setSuccess('Congrates! your payment completed')
-           setTransactionId(paymentIntent.id)
-
+        if (paymentIntent.status === "succeeded") {
+            const payment = {
+                price,
+                transactionId: paymentIntent.id,
+                bookingIf: _id
+            }
+            fetch(`${process.env.REACT_APP_API_LIN}/paymentsinfo`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        setSuccess('Congrats! your payment completed')
+                        setTransactionId(paymentIntent.id)
+                    }
+                })
         }
         console.log(paymentIntent)
         setProcessing(false)
@@ -99,7 +116,7 @@ const CheckoutForm = ({ data }) => {
                 />
 
                 <div class="mt-8 md:flex md:items-center">
-                    <button disabled={!stripe || !clientSecret} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md md:w-1/2 hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                    <button disabled={!stripe || !clientSecret || processing} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md md:w-1/2 hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
                         type='submit'
                     >
                         Pay
@@ -108,10 +125,10 @@ const CheckoutForm = ({ data }) => {
             </form>
             <h3 className='py-5 text-red-500'>{cardError}</h3>
             {
-                success && 
-                <div className='py-5'>
-                    <p className='text-green-500'></p>
-                    <p className=''>Your transactionId: <span className='font-semibold'>{transactionId}</span></p>
+                success &&
+                <div className='pb-5'>
+                    <p className='text-green-500 text-3xl'>{success}</p>
+                    <p className='text-xl pt-2'>Your transactionId: <span className='font-semibold'>{transactionId}</span></p>
                 </div>
             }
         </>

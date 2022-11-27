@@ -1,16 +1,17 @@
 import React from 'react';
+import './HeaderImage.css';
 
 const HeaderImage = () => {
     return (
         <div>
             {/* <!-- Jumbotron --> */}
             <div
-                class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
-                style=" background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp'); height: 400px;"
+                class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg backgroundImage"
+            // style=" background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp'); height: 400px;"
             >
                 <div
-                    class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-                    style="background-color: rgba(0, 0, 0, 0.6)"
+                    class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed headerImage"
+                // style="background-color: rgba(0, 0, 0, 0.6)"
                 >
                     <div class="flex justify-center items-center h-full">
                         <div class="text-white">

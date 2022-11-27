@@ -42,12 +42,6 @@ const NavbarDrawer = () => {
                         <Link to='/'><li><a
                             className='rounded-lg'
                         >Home</a></li></Link>
-                        <li><a
-                            className='rounded-lg'
-                        > Blogs</a></li>
-                        <Link to='/advertise'><li><a
-                            className='rounded-lg'
-                        >Advertisement</a></li></Link>
                         {
                             user?.uid ?
                                 <>

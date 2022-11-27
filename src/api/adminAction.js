@@ -7,6 +7,8 @@ export const getAllSeller = async () => {
     return sellers
 }
 
+
+
 // get all Buyer
 export const getAllBuyer = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
