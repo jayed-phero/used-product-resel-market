@@ -11,6 +11,7 @@ import Payment from "../components/Pages/Payment/Payment";
 import Signup from "../components/Pages/Register/Signup";
 import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import DashboardLayout from "../Layout/DashboardLayout";
+import PrivateRoutes from "./PrivateRoutes";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../components/Pages/Home/Home/Home");
@@ -41,7 +42,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/categori/:id',
-                element: <SingleCategori/>,
+                element: <PrivateRoutes>
+                    <SingleCategori/>
+                </PrivateRoutes>,
                 loader: ({ params }) => fetch(`${process.env.REACT_APP_API_LIN}/products/${params.id}`),
             }
         ]

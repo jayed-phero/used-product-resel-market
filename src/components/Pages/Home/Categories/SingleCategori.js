@@ -8,7 +8,7 @@ const SingleCategori = () => {
     const [product, setProduct] = useState(null)
 
     return (
-        <div className='px-5 md:px-52 my-44 '>
+        <div className='px-5 xl:px-52  py-20 lg:px-20  '>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-11 '>
                 {
                     data.map(cateData =>

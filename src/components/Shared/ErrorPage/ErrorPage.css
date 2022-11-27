@@ -1,0 +1,11 @@
+.backgroundImag{
+    background-image: url('https://wallup.net/wp-content/uploads/2016/02/18/295247-stars-snow-lake-748x499.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: rgba(0, 0, 0, 0.6) */
+}
+
+.image{
+    background-color: rgba(0, 0, 0, 0.6)
+}

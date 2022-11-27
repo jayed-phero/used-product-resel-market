@@ -14,13 +14,13 @@ const CategoriesContainer = () => {
     } , [])
 
     return (
-        <div className='md:px-52 px-5 py-16 '>
+        <div id='categori' className='md:px-52 px-5 py-16 '>
             <div className='flex items-center justify-between flex-col gap-5'>
                 <div className='flex flex-col justify-center items-center text-center'>
                     <h3 className='text-3xl font-semibold '><span className='text-regal-yellow'>Fresh Mobile <br /></span> for Maximum Satisfaction</h3>
                     <p className='w-2/3 pt-5'>Nullam sed ultricies erat, nec euismod metus. Morbi porttitor sapien vitae leo scelerisque. Nullam sed ultricies erat.</p>
                 </div>
-                <h3 className='px-12 py-3 border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'>Read More</h3>
+                <h3 className='px-12 py-3 border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'>Browes Products</h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-11 py-16'>
                 {

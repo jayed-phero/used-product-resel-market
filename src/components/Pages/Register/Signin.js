@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authTokenAndSaveUser } from '../../../api/userSave';
 import { AuthContext } from '../../../Context/AuthProvider';
 
@@ -8,12 +9,19 @@ const Signin = () => {
     const { loginUser, signInWithGoogle } = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
+
     const handleSignIn = (data) => {
         loginUser(data.email, data.password)
             .then(result => {
                 const user = result.user
                 console.log(user)
                 authTokenAndSaveUser(user)
+                toast.success("User Signin Successfully")
+                navigate(from, { replace: true })
             })
     }
 
@@ -28,7 +36,8 @@ const Signin = () => {
                     role: "buyer"
                 }
                 authTokenAndSaveUser(userData)
-
+                toast.success("User Signin by Google Successfully")
+                navigate(from, { replace: true })
             })
     }
     return (

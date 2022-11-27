@@ -35,7 +35,7 @@ const UserRoutes = () => {
                                     <th>Product</th>
                                     <th>Title</th>
                                     <th>Price</th>
-                                    <th></th>
+                                    <th>Payment</th>
                                 </tr>
                             </thead>
                             <tbody>

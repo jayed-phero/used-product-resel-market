@@ -6,8 +6,6 @@ const DrawerContent = ({ role }) => {
     const { user } = useContext(AuthContext)
     return (
         <div>
-            <h2 class="text-3xl font-semibold text-gray-800 dark:text-white">Brand</h2>
-
             <div class="relative mt-6">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                     <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
