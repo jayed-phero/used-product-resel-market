@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const SingleBookingData = ({data, i}) => {
-    const {img, price, productName} = data
+const SingleBookingData = ({ data, i }) => {
+    const { img, price, productName , _id} = data
     return (
         <tr>
             <th>
                 <label>
-                    {i+1}
+                    {i + 1}
                 </label>
             </th>
             <td>
@@ -23,7 +24,9 @@ const SingleBookingData = ({data, i}) => {
             </td>
             <td>{price}</td>
             <th>
-                <button className="btn btn-ghost bg-regal-yellow btn-sm">Pay</button>
+                <Link to={`/dashboard/payment/${_id}`}>
+                    <button className="btn btn-ghost bg-regal-yellow btn-sm">Pay</button>
+                </Link>
             </th>
         </tr>
     );

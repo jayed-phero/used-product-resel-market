@@ -40,8 +40,3 @@ const ErrorPage = () => {
 };
 
 export default ErrorPage;
-{/* <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqI3lHFjBbLelg5rGnkZVukHUI2cd9cnEGOQ&usqp=CAU"
-    alt=""
-    className='h-44 w-44'
-/> */}

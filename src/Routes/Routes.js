@@ -6,6 +6,7 @@ import AddAProduct from "../components/Pages/Dashboard/SellerRoute/AddAProduct";
 import MyProducts from "../components/Pages/Dashboard/SellerRoute/MyProducts";
 import UserRoutes from "../components/Pages/Dashboard/UserRoutes/UserRoutes";
 import SingleCategori from "../components/Pages/Home/Categories/SingleCategori";
+import Payment from "../components/Pages/Payment/Payment";
 import Signup from "../components/Pages/Register/Signup";
 import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import DashboardLayout from "../Layout/DashboardLayout";
@@ -72,6 +73,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/all-buyers',
                 element: <AllBuyers/>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment/>,
+                loader: ({params}) => fetch(`${process.env.REACT_APP_API_LIN}/bookings/${params.id}`)
             }
 
         ]
