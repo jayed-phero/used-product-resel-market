@@ -30,7 +30,7 @@ const CategoriesContainer = () => {
             {
                 loading ?
                     <div className='flex items-center justify-center text-center'>
-                        <div className="w-16 h-16 border-4 mt-11 border-dashed rounded-full animate-spin border-violet-400"></div>
+                        <div className="w-16 h-16 border-4 mt-20 border-dashed rounded-full animate-spin border-violet-400"></div>
                     </div>
                     :
                     <>

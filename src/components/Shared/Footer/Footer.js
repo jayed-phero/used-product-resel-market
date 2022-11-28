@@ -12,7 +12,7 @@ const Footer = () => {
                                     <a href="#" class="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">mobile<span className='text-regal-yellow'>ZONE</span></a>
                                 </div>
 
-                                <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new mobile and more.</p>
+                                <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31, Dec. 2022 other and never miss out on new mobile and more.</p>
 
                                 <div class="flex mt-6 -mx-2">
                                     <a href="#"
@@ -60,21 +60,21 @@ const Footer = () => {
                                 <div>
                                     <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
                                     <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tec</a>
-                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Music</a>
-                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Videos</a>
+                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Questions</a>
+                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mobile</a>
                                 </div>
 
                                 <div>
                                     <h3 class="text-gray-700 uppercase dark:text-white">Products</h3>
-                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mega cloud</a>
-                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Aperion UI</a>
-                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Meraki UI</a>
+                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">iphone</a>
+                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">vivo</a>
+                                    <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">samsung</a>
                                 </div>
 
                                 <div>
                                     <h3 class="text-gray-700 uppercase dark:text-white">Contact</h3>
                                     <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
-                                    <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">example@email.com</span>
+                                    <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">reselproducts@email.com</span>
                                 </div>
                             </div>
                         </div>

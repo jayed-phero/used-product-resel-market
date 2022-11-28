@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { authTokenAndSaveUser } from '../../../api/userSave';
@@ -7,6 +7,7 @@ import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const Signup = () => {
     const { user, createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
+    const [signupError, setSignupError] = useState("")
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const navigate = useNavigate()
@@ -28,7 +29,10 @@ const Signup = () => {
                 navigate('/signin')
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setSignupError(err)
+            })
     }
 
     const handleGoogleSignIn = () => {
@@ -46,23 +50,26 @@ const Signup = () => {
             })
     }
     return (
-        <div className='mt-32'>
+        <div className=''>
             <ScrollToTop></ScrollToTop>
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">mobile<span className='text-regal-yellow'>ZONE</span></h1>
+                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">sign<span className='text-regal-yellow'>UP</span></h1>
+                {
+                    signupError && <p className='text-red-600 text-center py-3'>{signupError}</p>
+                }
 
                 <form onSubmit={handleSubmit(handleSignup)} class="mt-6">
                     <div>
                         <label htmlFor="username" class="block text-sm text-gray-800 dark:text-gray-200">Username</label>
                         <input type="text"
                             {...register("name")}
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                     </div>
 
                     <div>
                         <label htmlFor="email" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
                         <input type="email"
-                            {...register("email")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            {...register("email")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                     </div>
 
 
@@ -73,13 +80,13 @@ const Signup = () => {
                         </div>
 
                         <input type="password"
-                            {...register("password")} class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            {...register("password")} class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                     </div>
 
                     <div class="mt-4">
                         <select type="text"
                             {...register("select")}
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 select select-bordered">
+                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 select select-bordered" required>
                             <option value="buyer" selected>Buyer</option>
                             <option value="seller">Seller</option>
                         </select>

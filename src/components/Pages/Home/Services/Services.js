@@ -5,7 +5,7 @@ const Services = () => {
         <div>
             <section class="bg-white dark:bg-gray-900 lg:px-20 xl:px-52 mb-16">
                 <div class="container px-5 py-3 lg:py-10 mx-auto">
-                    <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">explore our <br/> awesome <span class="text-regal-yellow">Mobiles</span></h1>
+                    <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">explore our <br /> awesome <span class="text-regal-yellow">Mobiles</span></h1>
 
                     <iframe class="min-w-full mt-12 h-64 md:h-[450px] rounded-xl overflow-hidden" src="https://www.youtube.com/embed/WuEH265pUy4" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
 
@@ -22,7 +22,8 @@ const Services = () => {
                                     <h1 class="text-2xl font-medium text-gray-700 capitalize dark:text-white">Fresh and faster</h1>
 
                                     <p class="mt-3 text-gray-500 dark:text-gray-300">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet
+                                        The theme of this year's smartphone releases seems to be iterative upgrades instead of wholesale changes. From the Samsung Galaxy S22 Ultra to the OnePlus 10 Pro to the Google Pixel 7 Pro, the flagships of 2022 so far seem to be very similar to their 2021 counterparts
+
                                     </p>
                                 </div>
                             </div>
@@ -40,7 +41,7 @@ const Services = () => {
                                     <h1 class="text-2xl font-medium text-gray-700 capitalize dark:text-white">No referbished Quality</h1>
 
                                     <p class="mt-3 text-gray-500 dark:text-gray-300">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet
+                                        Throw in Android 12 with four guaranteed years of Android updates and then another year of security updates, and great Samsung software features like Samsung DeX and you have a do-it-all, well-rounded flagship that offers more than what any other phone has to offer.
                                     </p>
                                 </div>
                             </div>
@@ -59,7 +60,7 @@ const Services = () => {
                                     <h1 class="text-2xl font-medium text-gray-700 capitalize dark:text-white">Six Month Servicing</h1>
 
                                     <p class="mt-3 text-gray-500 dark:text-gray-300">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet
+                                        The Galaxy S22 Ultra brings back the awesome and versatile camera system of the Galaxy S21 Ultra, but with superior software processing and computational photography smarts for an even better camera system: shots in low light are less noisy and better balanced,
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +78,7 @@ const Services = () => {
                                     <h1 class="text-2xl font-medium text-gray-700 capitalize dark:text-white">Awesome & clean designs</h1>
 
                                     <p class="mt-3 text-gray-500 dark:text-gray-300">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non corrupti doloribus voluptatum eveniet
+                                        Considering that Samsung's Galaxy S21 Ultra held this spot for almost all of 2021, Samsung didn't need to do much for the Galaxy S22 Ultra to claim this spot immediately upon release. But Samsung didn't rest on its laurels.
                                     </p>
                                 </div>
                             </div>

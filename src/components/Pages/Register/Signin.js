@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const Signin = () => {
     const { loginUser, signInWithGoogle } = useContext(AuthContext)
+    const [signinError, setSigninError] = useState("")
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const navigate = useNavigate()
@@ -23,6 +24,10 @@ const Signin = () => {
                 authTokenAndSaveUser(user)
                 toast.success("User Signin Successfully")
                 navigate(from, { replace: true })
+            })
+            .catch(err => {
+                console.log(err)
+                setSigninError(err)
             })
     }
 
@@ -42,16 +47,20 @@ const Signin = () => {
             })
     }
     return (
-        <div className='my-32'>
+        <div className=''>
             <ScrollToTop />
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">mobile<span className='text-regal-yellow'>ZONE</span></h1>
+                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">SIGN<span className='text-regal-yellow'>IN</span></h1>
+
+                {
+                    signinError && <p className='text-red-600 text-center py-3'>{signinError}</p>
+                }
 
                 <form onSubmit={handleSubmit(handleSignIn)} class="mt-6">
                     <div>
                         <label htmlFor="username" class="block text-sm text-gray-800 dark:text-gray-200">Email</label>
                         <input type="text"
-                            {...register("email")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            {...register("email")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                     </div>
 
                     <div class="mt-4">
@@ -61,7 +70,7 @@ const Signin = () => {
                         </div>
 
                         <input type="password"
-                            {...register("password")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            {...register("password")} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                     </div>
 
                     <div class="mt-6">

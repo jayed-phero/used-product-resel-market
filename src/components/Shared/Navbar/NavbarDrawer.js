@@ -11,7 +11,7 @@ const NavbarDrawer = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100 py-5 shadow-lg px-11 flex justify-between items-center">
+            <div className="navbar bg-base-100 py-5 shadow-lg px-5 flex justify-between items-center shadow-lg">
                 <div className="">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,9 +36,8 @@ const NavbarDrawer = () => {
                                     undefined
                             }
 
-                            <li><a>Item 3</a></li>
                             <Link to="/signin"> <h3
-                                className='px-9 py-3 rounded-3xl border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'
+                                className='px-9 py-3 rounded-3xl mt-3 border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent'
                             >SignIn</h3></Link>
                         </ul>
                     </div>

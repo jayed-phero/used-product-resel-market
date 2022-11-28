@@ -33,13 +33,12 @@ const DashboardLayout = () => {
                     :
                     <div className="drawer drawer-mobile ">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content p-5">
+                        <div className="drawer-content lg:p-5">
                             <Outlet />
                         </div>
                         <div className="drawer-side shadow-xl">
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-80 bg-base-200 xl:bg-transparent  text-base-content ">
-                                {/* <!-- Sidebar content here --> */}
                                 <DrawerContent role={role} />
                             </ul>
 

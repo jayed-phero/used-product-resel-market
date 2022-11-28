@@ -18,9 +18,8 @@ const Payment = () => {
     if(navigation.state === "loading"){
         // return <
     }
-    // console.log(name)
     return (
-        <div className='md:px-52 px-5'>
+        <div className='md:px-52 '>
             <ScrollToTop/>
             <section class="bg-white dark:bg-gray-900">
                 <div class="container px-6 py-24 mx-auto lg:py-32">

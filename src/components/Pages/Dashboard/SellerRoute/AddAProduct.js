@@ -59,7 +59,7 @@ const AddAProduct = () => {
     return (
         <div>
             <ScrollToTop/>
-            <section class="bg-white dark:bg-gray-900">
+            <section class="bg-white dark:bg-gray-900 mb-11">
                 <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
                     <form onSubmit={handleSubmit(handleAdding)} className="w-full max-w-md">
                         <div class="flex items-center justify-center mt-6">
@@ -73,7 +73,7 @@ const AddAProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input type="text" placeholder="Product name" className="input input-bordered w-full" {...register("productname")} />
+                                <input type="text" placeholder="Product name" className="input input-bordered w-full" {...register("productname")} required/>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@ const AddAProduct = () => {
                                 </label>
                                 <input type="text" name='price' placeholder="Price" className="input input-bordered w-full"
                                     {...register("price")}
-                                />
+                                 required/>
                             </div>
                             <div className="form-control w-full">
                                 <label className="label">
@@ -93,7 +93,7 @@ const AddAProduct = () => {
                                 </label>
                                 <input type="text" name='price' placeholder="OriginalPrice" className="input input-bordered w-full"
                                     {...register("originalPrice")}
-                                />
+                                required/>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@ const AddAProduct = () => {
                                 </label>
                                 <input type="file" className="file-input file-input-bordered file-input-gray w-full"
                                     {...register("image")}
-                                />
+                                required/>
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@ const AddAProduct = () => {
                                 </label>
                                 <input type="text" placeholder="Purchase Year" className="input input-bordered w-full"
                                     {...register("pyear")}
-                                />
+                               required/>
                             </div>
                             <div className="form-control w-full">
                                 <label className="label">
@@ -124,7 +124,7 @@ const AddAProduct = () => {
                                 </label>
                                 <select className="select select-bordered w-full " name='productType'
                                     {...register("condition")}
-                                >
+                                required>
                                     <option value='excellent' selected>Excellent</option>
                                     <option value='good'>Good</option>
                                     <option value='fair'>Fair</option>
@@ -140,7 +140,7 @@ const AddAProduct = () => {
                                 </label>
                                 <input type="text" placeholder="Location" className="input input-bordered w-full"
                                     {...register("location")}
-                                />
+                                required />
                             </div>
                         </div>
 
@@ -152,7 +152,7 @@ const AddAProduct = () => {
                                 </label>
                                 <select className="select select-bordered w-full " name='productType'
                                     {...register("categori")}
-                                >
+                                required>
                                     <option value='1' selected>vivo</option>
                                     <option value='2'>samsung</option>
                                     <option value='3'>iphone</option>
@@ -168,7 +168,7 @@ const AddAProduct = () => {
                                 </label>
                                 <textarea className="textarea textarea-bordered" placeholder="Description"
                                     {...register("description")}
-                                ></textarea>
+                                required></textarea>
                             </div>
                         </div>
 
