@@ -47,7 +47,7 @@ const Signin = () => {
             })
     }
     return (
-        <div className=''>
+        <div className=' py-7'>
             <ScrollToTop />
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
                 <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">SIGN<span className='text-regal-yellow'>IN</span></h1>

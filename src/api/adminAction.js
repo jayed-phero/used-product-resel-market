@@ -9,13 +9,13 @@ export const getAllSeller = async () => {
 
 
 
-// // get all Buyer
-// export const getAllBuyer = async () => {
-//     const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
+// get all Buyer
+export const getAllBuyer = async () => {
+    const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
 
-//     const sellers = await res.json()
-//     return sellers
-// }
+    const buyers = await res.json()
+    return buyers
+}
 
 
 

@@ -24,13 +24,6 @@ const MyProducts = () => {
             })
     }
 
-    const advertiseOff = product => {
-        advertiseClose(product)
-            .then(data => {
-                console.log(data)
-                allProductsGet()
-            })
-    }
 
     const allProductsGet = () => {
         setLoading(true)
@@ -49,18 +42,18 @@ const MyProducts = () => {
         fetch(`${process.env.REACT_APP_API_LIN}/allproducts/${product._id}`, {
             method: 'DELETE',
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.deletedCount > 0){
-                allProductsGet();
-                toast.success(`Product ${product.name} deleted successfully`)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    allProductsGet();
+                    toast.success(`Product ${product.name} deleted successfully`)
+                }
+            })
 
     }
-     return (
+    return (
         <div>
-            <ScrollToTop/>
+            <ScrollToTop />
             {
                 loading ?
                     <Spinner />
@@ -110,25 +103,12 @@ const MyProducts = () => {
                                                 }
                                             </td>
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                {product.role === 'available' ?
-                                                    (
-                                                        <span
-                                                            onClick={() => makeAdvetise(product)}
-                                                            className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight inset-0 bg-green-200 rounded-full'
-                                                        >
-                                                            Make Advertise
-                                                        </span>
-                                                    )
-                                                    :
-                                                    (
-                                                        <span
-                                                            onClick={() => advertiseOff(product)}
-                                                            className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight bg-green-200  rounded-full'
-                                                        >
-                                                            Advertise Close
-                                                        </span>
-                                                    )
-                                                }
+                                                <span
+                                                    onClick={() => makeAdvetise(product)}
+                                                    className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight inset-0 bg-green-200 rounded-full'
+                                                >
+                                                    Make Advertise
+                                                </span>
                                             </td>
                                             <td>
                                                 <label onClick={() => setDeleteProduct(product)} htmlFor="modalConformation" className="btn btn-ghost text-error btn-xs">Delete</label>
@@ -142,12 +122,12 @@ const MyProducts = () => {
             }
             {
                 deleteProduct && <ConformationModal
-                title={` Are you sure want to delete !!!`}
-                message={`if you delete ${deleteProduct.name}. we will never be able to recover it!!`}
-                successAction={handleDeleteProduct}
-                modalData={deleteProduct}
-                successButtonName="Delete"
-                modalClose={modalClose}
+                    title={` Are you sure want to delete !!!`}
+                    message={`if you delete ${deleteProduct.name}. we will never be able to recover it!!`}
+                    successAction={handleDeleteProduct}
+                    modalData={deleteProduct}
+                    successButtonName="Delete"
+                    modalClose={modalClose}
                 />
             }
         </div>

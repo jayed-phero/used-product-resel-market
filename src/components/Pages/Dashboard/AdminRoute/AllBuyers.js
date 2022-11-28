@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { getAllBuyer } from '../../../../api/adminAction';
@@ -9,50 +8,29 @@ import Spinner from '../../Spinner/Spinner';
 const AllBuyers = () => {
     const [loading, setLoading] = useState(true)
     const [deleteBuyer, setDeleteBuyer] = useState(null)
-    // const [buyerData, setBuyerData] = useState([])
+    const [buyerData, setBuyerData] = useState([])
 
-    // useEffect(() => {
-    //     allBuyer()
-    // }, [])
+    useEffect(() => {
+        allBuyer()
+    }, [])
 
-    // const allBuyer = () => {
-    //     setLoading(true)
-    //     getAllBuyer()
-    //         .then(data => {
-    //             console.log(data)
-    //             setBuyerData(data)
-    //             setLoading(false)
-    //         })
-    // }
-
-    //  const getAllBuyer = async () => {
-    //     const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
-    
-    //     const sellers = await res.json()
-    //     return sellers
-    // }
-
-    const { data: buyerData = [], refetch, isLoading } = useQuery({
-        queryKey: ['alluser?role=buyer'],
-        queryFn: async () => {
-            const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`);
-            const data = await res.json()
-            return data;
-        }
-    });
-
-    // const { data: buyerData = [], refetch, isLoading } = useQuery({
-    //     queryKey: ['alluser'],
-    //     queryFn: () => fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // });
-
-    if (isLoading) {
-        return <Spinner />
+    const allBuyer = () => {
+        setLoading(true)
+        getAllBuyer()
+            .then(data => {
+                console.log(data)
+                setBuyerData(data)
+                setLoading(false)
+            })
     }
+
+    const getAllBuyer = async () => {
+        const res = await fetch(`${process.env.REACT_APP_API_LIN}/alluser?role=buyer`)
+
+        const buyers = await res.json()
+        return buyers
+    }
+
 
     const modalClose = () => {
         setDeleteBuyer(null)
@@ -66,7 +44,6 @@ const AllBuyers = () => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount > 0) {
-                    refetch()
                     toast.success(`Buyer ${buyer.name} deleted successfully`)
                 }
             })
@@ -74,7 +51,7 @@ const AllBuyers = () => {
     }
     return (
         <div>
-            <ScrollToTop/>
+            <ScrollToTop />
             {
                 loading ?
                     <Spinner />
@@ -95,7 +72,7 @@ const AllBuyers = () => {
                                 {
                                     buyerData?.map((buyer, i) =>
                                         <tr>
-                                            <th>{i+1}</th>
+                                            <th>{i + 1}</th>
                                             <td>{buyer.name}</td>
                                             <td>{buyer.email}</td>
                                             <td>{buyer.role}</td>
