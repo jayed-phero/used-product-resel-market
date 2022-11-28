@@ -5,6 +5,7 @@ import DrawerContent from '../components/Pages/Dashboard/DrawerContent';
 import Spinner from '../components/Pages/Spinner/Spinner';
 import NavbarDrawer from '../components/Shared/Navbar/NavbarDrawer';
 import { AuthContext } from '../Context/AuthProvider';
+import ScrollToTop from '../hooks/Scrool-to-top';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
@@ -24,6 +25,7 @@ const DashboardLayout = () => {
 
     return (
         <div className='min-h-screen '>
+            <ScrollToTop/>
             <NavbarDrawer/>
             {
                 loading ?
@@ -36,7 +38,7 @@ const DashboardLayout = () => {
                         </div>
                         <div className="drawer-side shadow-xl">
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                            <ul className="menu p-4 w-80 bg-base-200 md:bg-transparent  text-base-content ">
+                            <ul className="menu p-4 w-80 bg-base-200 xl:bg-transparent  text-base-content ">
                                 {/* <!-- Sidebar content here --> */}
                                 <DrawerContent role={role} />
                             </ul>

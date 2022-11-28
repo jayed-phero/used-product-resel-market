@@ -1,8 +1,10 @@
 import React from 'react';
-
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 const Blogs = () => {
+
     return (
         <div className='px-5 md:px-20 xl:px-52 py-16'>
+            <ScrollToTop/>
             <section className="bg-white dark:bg-gray-900">
                 <div className="container px-6 py-10 mx-auto">
                     <div className="flex items-center justify-between">

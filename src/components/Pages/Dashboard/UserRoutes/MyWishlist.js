@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllWishlistedProducts } from '../../../../api/wishlist';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 import Spinner from '../../Spinner/Spinner';
 
 const MyWishlist = () => {
@@ -21,6 +22,7 @@ const MyWishlist = () => {
     }
     return (
         <div>
+            <ScrollToTop/>
             {
                 loading ?
                     <Spinner />

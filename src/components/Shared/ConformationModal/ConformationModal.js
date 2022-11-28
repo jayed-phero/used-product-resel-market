@@ -1,8 +1,10 @@
 import React from 'react';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const ConformationModal = ({ title, message, modalClose, successAction, modalData, successButtonName }) => {
     return (
         <div>
+            <ScrollToTop/>
             <input type="checkbox" id="modalConformation" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">

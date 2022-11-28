@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import React, { useContext } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PK}`);
@@ -20,6 +21,7 @@ const Payment = () => {
     // console.log(name)
     return (
         <div className='md:px-52 px-5'>
+            <ScrollToTop/>
             <section class="bg-white dark:bg-gray-900">
                 <div class="container px-6 py-24 mx-auto lg:py-32">
                     <div class="lg:flex">

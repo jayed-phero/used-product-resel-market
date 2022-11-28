@@ -1,16 +1,20 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const CheckoutForm = ({ data }) => {
     const stripe = useStripe()
+    const {user} = useContext(AuthContext)
     const elements = useElements()
     const [clientSecret, setClientSecret] = useState("")
     const [cardError, setCartError] = useState('')
     const [success, setSuccess] = useState('')
     const [processing, setProcessing] = useState(false)
     const [transactionId, setTransactionId] = useState('')
-    const { pricee, username, email, _id } = data;
-    const price = 501;
+    const { price, username, email, _id } = data;
+    const priceInt = parseInt(price, 10)
+    // console.log(price)
 
 
     useEffect(() => {
@@ -18,13 +22,13 @@ const CheckoutForm = ({ data }) => {
         fetch(`${process.env.REACT_APP_API_LIN}/create-payment-intent`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "content-Type": "application/json"
             },
-            body: JSON.stringify({ price }),
+            body: JSON.stringify({ priceInt }),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));
-    }, [price]);
+    }, [priceInt]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -71,9 +75,11 @@ const CheckoutForm = ({ data }) => {
 
         if (paymentIntent.status === "succeeded") {
             const payment = {
-                price,
+                priceInt,
+                email: user?.email,
+                name: user?.displayName,
                 transactionId: paymentIntent.id,
-                bookingIf: _id
+                bookingId: _id
             }
             fetch(`${process.env.REACT_APP_API_LIN}/paymentsinfo`, {
                 method: 'POST',
@@ -97,6 +103,7 @@ const CheckoutForm = ({ data }) => {
     }
     return (
         <>
+        <ScrollToTop/>
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{

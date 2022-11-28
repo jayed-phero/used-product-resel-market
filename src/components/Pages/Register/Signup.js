@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { authTokenAndSaveUser } from '../../../api/userSave';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const Signup = () => {
     const { user, createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
@@ -46,8 +47,9 @@ const Signup = () => {
     }
     return (
         <div className='mt-32'>
+            <ScrollToTop></ScrollToTop>
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">IT Waala</h1>
+                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">mobile<span className='text-regal-yellow'>ZONE</span></h1>
 
                 <form onSubmit={handleSubmit(handleSignup)} class="mt-6">
                     <div>

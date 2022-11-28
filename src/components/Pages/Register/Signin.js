@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authTokenAndSaveUser } from '../../../api/userSave';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const Signin = () => {
     const { loginUser, signInWithGoogle } = useContext(AuthContext)
@@ -42,8 +43,9 @@ const Signin = () => {
     }
     return (
         <div className='my-32'>
+            <ScrollToTop />
             <div class="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">IT Waala</h1>
+                <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">mobile<span className='text-regal-yellow'>ZONE</span></h1>
 
                 <form onSubmit={handleSubmit(handleSignIn)} class="mt-6">
                     <div>

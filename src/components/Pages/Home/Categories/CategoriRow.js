@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
+import useVerify from '../../../../hooks/useVerify';
 
 const CategoriRow = ({ setProduct, cateData }) => {
     const {user} = useContext(AuthContext)
-    const { image, name, reselPrice, orginalPrice, yearsOfUses, postsTime, location, selerName } = cateData
+    const { image, name, reselPrice, orginalPrice, yearsOfUses, postsTime, location, selerName, email } = cateData;
+
+    const [isVerify] = useVerify(email)
 
     const handleWishlist = () => {
         const wishlistData = {
@@ -34,6 +38,7 @@ const CategoriRow = ({ setProduct, cateData }) => {
     }
     return (
         <div>
+            <ScrollToTop/>
             <div className='border-2 border-dashed border-gray-400 p-5 flex flex-col justify-center itmes-center'>
                 <img className='h-44' src={image} alt="" />
                 <h3 className='text-3xl font-semibold py-3'>{name}</h3>
@@ -69,11 +74,12 @@ const CategoriRow = ({ setProduct, cateData }) => {
                 </div>
                 <div className='flex items-center text-xl  py-3 gap-3'>
                     <h3>Seller : <span className='font-semibold'>{selerName}</span></h3>
-                    <p className='h-3 w-3 rounded-full bg-blue-500'></p>
+                    {
+                        isVerify && 
+                        <p className='h-3 w-3 rounded-full bg-blue-500'></p>
+                    }
+
                 </div>
-                {/* <Link>
-                    <label className='w-full py-3 flex items-center justify-center border-2 border-regal-yellow bg-regal-yellow hover:bg-transparent text-lg font-semibold btn' htmlFor="product-modal">Book Now</label>
-                </Link> */}
                 <div className='flex items-center gap-3'>
                     <label htmlFor="product-modal" className="btn bg-regal-yellow border-none flex-1"
                         onClick={() => setProduct(cateData)}

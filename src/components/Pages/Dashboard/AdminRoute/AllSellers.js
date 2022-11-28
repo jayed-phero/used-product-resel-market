@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { getAllSeller, verifySeller } from '../../../../api/adminAction';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 import ConformationModal from '../../../Shared/ConformationModal/ConformationModal';
 import Spinner from '../../Spinner/Spinner';
 
@@ -52,6 +53,7 @@ const AllSellers = () => {
     }
     return (
         <div>
+            <ScrollToTop/>
             {
                 loading ?
                     <Spinner />

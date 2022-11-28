@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { postAndGetImageUrl } from '../../../../api/ImagePost';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 
 const AddAProduct = () => {
     const { user } = useContext(AuthContext)
@@ -57,6 +58,7 @@ const AddAProduct = () => {
     }
     return (
         <div>
+            <ScrollToTop/>
             <section class="bg-white dark:bg-gray-900">
                 <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
                     <form onSubmit={handleSubmit(handleAdding)} className="w-full max-w-md">

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 
-const ProductModal = ({ product , setProduct}) => {
+const ProductModal = ({ product, setProduct }) => {
     const { user } = useContext(AuthContext)
     const { name, reselPrice, image } = product;
 
@@ -30,18 +31,18 @@ const ProductModal = ({ product , setProduct}) => {
         fetch(`${process.env.REACT_APP_API_LIN}/bookings`, {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(bookingData)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.acknowledged){
-                setProduct(null)
-                toast.success("Product booking successfullly done")
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setProduct(null)
+                    toast.success("Product booking successfullly done")
+                }
+            })
 
         console.log(bookingData)
         // setProduct(null)
@@ -49,6 +50,7 @@ const ProductModal = ({ product , setProduct}) => {
 
     return (
         <div>
+            <ScrollToTop />
             <input type="checkbox" id="product-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { advertiseProductsRole, advertiseProductsShow } from '../../../../api/advertiseProduct';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 
 const AdvertiseProducts = () => {
 
@@ -29,6 +30,7 @@ const AdvertiseProducts = () => {
 
     return (
         <>
+            <ScrollToTop />
             {
                 productsData?.length &&
                 <div className='md:px-52 py-20 px-5'>

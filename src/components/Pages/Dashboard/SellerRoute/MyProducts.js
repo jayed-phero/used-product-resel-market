@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { advertiseClose, advertiseProduct, allProductForSeller } from '../../../../api/products';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 import ConformationModal from '../../../Shared/ConformationModal/ConformationModal';
 import Spinner from '../../Spinner/Spinner';
 
@@ -59,6 +60,7 @@ const MyProducts = () => {
     }
      return (
         <div>
+            <ScrollToTop/>
             {
                 loading ?
                     <Spinner />

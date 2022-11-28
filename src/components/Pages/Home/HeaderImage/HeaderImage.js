@@ -1,10 +1,11 @@
 import React from 'react';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 import './HeaderImage.css';
 
 const HeaderImage = () => {
     return (
         <div>
-            {/* <!-- Jumbotron --> */}
+            <ScrollToTop/>
             <div
                 class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg backgroundImage"
             >

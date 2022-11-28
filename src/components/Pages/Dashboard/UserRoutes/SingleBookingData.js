@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SingleBookingData = ({ data, i }) => {
-    const { img, price, productName , _id} = data
+    const { img, price, productName, _id, paid } = data
     return (
         <tr>
             <th>
@@ -24,12 +24,20 @@ const SingleBookingData = ({ data, i }) => {
             </td>
             <td>{price}</td>
             <th>
-                <Link to={`/dashboard/payment/${_id}`}>
-                    <button className="btn btn-ghost bg-regal-yellow btn-sm">Pay</button>
-                </Link>
+                {
+                    price && !paid &&
+                    <Link to={`/dashboard/payment/${_id}`}>
+                        <button className="btn btn-ghost bg-regal-yellow btn-sm">Pay</button>
+                    </Link>
+                }
+                {
+                    price && paid &&
+                    <button className="btn btn-ghost bg-green-300 text-green-900 btn-sm">Paid</button>
+                }
             </th>
         </tr>
     );
 };
 
 export default SingleBookingData;
+
